@@ -1,18 +1,27 @@
 <?php
 
-use Illuminate\Http\Request;
+Route::get('/orders', 'OrderController@index');
+Route::get('/orders/{id}', 'OrderController@show');
+Route::post('/orders', 'OrderController@create');
+Route::put('/orders/{id}', 'OrderController@update');
+Route::delete('/orders/{id}', 'OrderController@delete');
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::get('/discounts', 'DiscountController@index');
+Route::get('/discounts/{id}', 'DiscountController@show');
+Route::post('/discounts', 'DiscountController@create');
+Route::put('/discounts/{id}', 'DiscountController@update');
+Route::delete('/discounts/{id}', 'DiscountController@delete');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/products', 'ProductController@index');
+Route::get('/products/{id}', 'ProductController@show');
+Route::post('/products', 'ProductController@create');
+Route::put('/products/{id}', 'ProductController@update');
+Route::delete('/products/{id}', 'ProductController@delete');
+
+Route::post('/bundles', 'BundleController@create');
+Route::put('/bundles/{id}', 'BundleController@update');
+
+Route::put('/attach-discount', 'ProductDiscountController@attach');
+Route::put('/detach-discount', 'ProductDiscountController@detach');
+
+
